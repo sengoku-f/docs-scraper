@@ -1,0 +1,8 @@
+Scrapy==2.10.1
+selenium==4.10.0
+meilisearch==0.28.2
+requests-iap==0.2.0
+python-keycloak-client==0.2.3
+requests==2.31.0
+dotenv
+legacy-cgi==2.6.2
