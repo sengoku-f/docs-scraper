@@ -24,3 +24,7 @@ configs/private
 
 # config file
 config.json
+
+config
+
+venv

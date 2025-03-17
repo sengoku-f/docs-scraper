@@ -1,0 +1,19 @@
+Scrapy==2.10.1
+selenium==4.10.0
+meilisearch==0.28.2
+requests-iap==0.2.0
+python-keycloak-client==0.2.3
+requests==2.31.0
+dotenv
+legacy-cgi==2.6.2
+pytest==7.4.1
+
+# pylint==2.17.5
+# tox==4.11.1
+# tox-pipenv==1.10.1
+# importlib_metadata; python_version < '3.8'
+# zipp; python_version < '3.8'
+# exceptiongroup; python_version < '3.11'
+# tomli; python_version < '3.11'
+# wrapt; python_version < '3.11'
+# dill; python_version < '3.11'

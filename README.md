@@ -166,8 +166,13 @@ Following on from the example in the [first step](#run-your-meilisearch-instance
 
 Then, run:
 ```bash
-pipenv install
-pipenv run ./docs_scraper <path-to-your-config-file>
+python3 -m venv venv
+source ./venv/bin/activate
+
+pip3 install -r requirements.txt
+python3 ./docs_scraper <path-to-your-config-file>
+
+deactivate
 ```
 
 `<path-to-your-config-file>` should be the path of your configuration file defined at the [previous step](#set-your-config-file).
