@@ -10,6 +10,7 @@ meilisearch = "==0.28.2"
 requests-iap = "==0.2.0"
 python-keycloak-client = "==0.2.3"
 requests = "==2.31.0"
+dotenv = "==0.9.9"
 
 [dev-packages]
 pytest = "==7.4.1"

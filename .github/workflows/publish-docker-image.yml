@@ -4,6 +4,8 @@ on:
   push:
     tags:
       - 'v*'
+# 允许你从 Actions 选项卡手动运行此工作流程
+  workflow_dispatch:
 
 jobs:
   build:
@@ -13,21 +15,26 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
-      - name: Check release validity
-        run: sh .github/scripts/check-release.sh
+      # - name: Check release validity
+      #   run: sh .github/scripts/check-release.sh
+
+      - name: Extract tag name without "v"
+        run: |
+          TAG=${{ github.ref_name }}
+          echo "VERSION=${TAG#v}" >> $GITHUB_ENV
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
 
       - name: Login to Docker Hub
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
           push: true
           platforms: linux/amd64,linux/arm64
-          tags: getmeili/docs-scraper:latest,getmeili/docs-scraper:${{ github.ref_name }}
+          tags: donxj/docs-scraper:latest,donxj/docs-scraper:${{ env.VERSION }}
